@@ -1,0 +1,247 @@
+/*Importa fonte especial do Gogle Fonts*/
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Lato:wght@300;400;700&display=swap');
+
+/*Variaveis de cor - paleta Van Gogh*/
+:root { /*Seleciona o elemento raiz do documento*/
+    --azul-escuro: #1a2744;
+    --azul-medio: #2d4a8a;
+    --azul-claro: #4a7ab5;
+    --amarelo-ouro: #c9a84c;
+    --amarelo-claro: #f0d060;
+    --bege: #f7f4ef;
+    --texto-escuro: #1a1a2e;
+    --texto-medio: #555566;
+}
+
+/*Fonte base*/
+body{
+    font-family: 'Lato', sans-serif;
+    background-color: var(--bege);
+    color: var(--texto-escuro);
+}
+
+/*Será usado a fonte serifada em titulos para dar clima de museu*/
+h1, h2, h3, h4{
+    font-family: 'Playfair Display', serif;
+}
+
+/*--NAVBAR--*/
+/*O termo navbar é a abreviação de navigation bar ou, barra de navegação*/
+.navbar-vangogh {
+    background-color: var(--azul-escuro);
+    border-bottom: 3px solid var(--amarelo-ouro);
+    padding: 14px 24px;
+}
+
+.navbar-vangogh .brand{ /*O que seria isso??*/
+    font-family: 'Playfair Display' ,serif;
+    font-size: 1.3rem;
+    color: var(--amarelo-ouro);
+    letter-spacing: 1px;
+}
+
+.navbar-vangogh .subtitulo {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.5);
+    letter-spacing: 2px;
+    text-transform: uppercase; /*O que é isso??*/
+}
+
+/*--SIDEBAR--* oque é isso*/
+.sidebar-vangogh {
+    background-color: var(--azul-medio);
+    min-height: 100vh;
+    padding: 24px 16px;
+    border-right: 1px solid var(--azul-medio);
+}
+
+.sidebar-vangogh .sidebar-titulo {
+  font-size: 0.7rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+  margin-bottom: 16px;
+}
+
+/* ===== CONTADORES DO DASHBOARD ===== */
+.contador-card {
+  border-left: 3px solid var(--amarelo-ouro);
+  border-radius: 0 6px 6px 0;
+  padding: 10px 14px;
+  margin-bottom: 10px;
+  background: rgba(255,255,255,0.05);
+  transition: transform 0.2s ease;
+}
+
+.contador-card:hover {
+  transform: translateX(4px);
+}
+
+.contador-card.azul  { border-left-color: var(--azul-claro); }
+.contador-card.verde { border-left-color: #6aaa6a; }
+.contador-card.cinza { border-left-color: #888; }
+
+.contador-card .numero {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1;
+}
+
+.contador-card .legenda {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: rgba(255,255,255,0.4);
+  margin-top: 2px;
+}
+
+/* Caixa especial de horas totais */
+.horas-box {
+  background: rgba(201,168,76,0.12);
+  border: 1px solid rgba(201,168,76,0.3);
+  border-radius: 8px;
+  padding: 14px;
+  text-align: center;
+  margin-top: 16px;
+}
+
+.horas-box .horas-numero {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--amarelo-ouro);
+}
+
+.horas-box .horas-legenda {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: rgba(255,255,255,0.4);
+  margin-top: 2px;
+}
+
+/* ===== CARDS DE OBRA ===== */
+.card-obra {
+  background: #fff;
+  border: 1px solid #e8e0d0;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: all 0.25s ease;
+  margin-bottom: 16px;
+}
+
+.card-obra:hover {
+  border-color: var(--amarelo-ouro);
+  transform: translateY(-2px);
+}
+
+.card-obra .card-topo {
+  background: var(--azul-escuro);
+  padding: 14px 16px;
+  border-bottom: 2px solid var(--amarelo-ouro);
+}
+
+.card-obra .card-topo .obra-titulo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  color: #fff;
+  margin: 0;
+}
+
+.card-obra .card-topo .obra-ano {
+  font-size: 0.75rem;
+  color: var(--amarelo-ouro);
+  margin-top: 2px;
+}
+
+/* Badges de status */
+.badge-criando   { background: #ddeeff; color: #1a4a8a; }
+.badge-pausada   { background: #eeeeee; color: #555; }
+.badge-finalizada{ background: #ddffd8; color: #1a6a1a; }
+
+/* ===== FILTROS ===== */
+.filtro-btn {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 8px 12px;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 6px;
+  background: transparent;
+  color: rgba(255,255,255,0.5);
+  font-size: 0.8rem;
+  cursor: pointer;
+  margin-bottom: 6px;
+  transition: all 0.15s;
+  letter-spacing: 0.5px;
+}
+
+.filtro-btn:hover {
+  background: rgba(255,255,255,0.07);
+  color: #fff;
+}
+
+.filtro-btn.ativo {
+  background: rgba(201,168,76,0.15);
+  border-color: var(--amarelo-ouro);
+  color: var(--amarelo-ouro);
+}
+
+/* ===== FORMULÁRIO ===== */
+.form-vangogh {
+  background: #fff;
+  border: 1px solid #e8e0d0;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+.form-vangogh .form-titulo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  color: var(--azul-escuro);
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #e8e0d0;
+}
+.form-vangogh .form-control:focus {
+  border-color: var(--azul-claro);
+  box-shadow: 0 0 0 3px rgba(74,122,181,0.15);
+}
+
+.btn-vangogh-primario {
+  background-color: var(--azul-escuro);
+  border: none;
+  color: var(--amarelo-ouro);
+  padding: 8px 20px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+.btn-vangogh-primario:hover { opacity: 0.88; }
+
+.btn-vangogh-secundario {
+  background-color: transparent;
+  border: 1px solid #ccc;
+  color: #888;
+  padding: 8px 20px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+/* ===== RODAPÉ ===== */
+.rodape-vangogh {
+  background-color: var(--azul-escuro);
+  border-top: 3px solid var(--amarelo-ouro);
+  padding: 14px 24px;
+  text-align: center;
+}
+
+.rodape-vangogh address {
+  font-style: normal;
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.4);
+  letter-spacing: 1px;
+}
