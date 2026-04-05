@@ -1,73 +1,91 @@
-# React + TypeScript + Vite
+# Diário de Van Gogh
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicação desenvolvida para a disciplina **Desenvolvimento de Software WEB**
+Prof. Alexandre Cláudio de Almeida — Escola Politécnica / PUC Goiás
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Sobre o projeto
 
-## React Compiler
+O Diário de Van Gogh é um portfólio pessoal de obras de arte. O usuário pode
+cadastrar obras, acompanhar o status de cada uma (em criação, pausada ou
+finalizada) e visualizar um dashboard com contadores que atualizam em tempo real.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## Estrutura de pastas
+src/
+├── components/       — componentes reutilizáveis da interface
+│   ├── Navbar.tsx    — barra de navegação superior
+│   ├── Dashboard.tsx — painel de contadores (recebe props)
+│   ├── CardObra.tsx  — card de uma única obra
+│   ├── Formulario.tsx— formulário para adicionar obras
+│   └── Rodape.tsx    — rodapé com tag address
+├── types/
+│   ├── IObra.ts      — interface que define o formato de uma obra
+│   └── IProps.ts     — interfaces que definem as props de cada componente
+├── styles/
+│   └── global.css    — paleta de cores Van Gogh e estilos personalizados
+├── App.tsx           — componente raiz que gerencia o estado global
+└── main.tsx          — ponto de entrada da aplicação
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Justificativa da arquitetura
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### Por que o estado fica no App.tsx?
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+O estado principal (lista de obras) fica no `App.tsx` porque múltiplos
+componentes dependem dos mesmos dados — o `Dashboard` precisa dos contadores,
+o `CardObra` precisa de cada obra, e o `Formulario` precisa adicionar na lista.
+Quando o estado fica no componente pai, todos os filhos recebem os dados
+atualizados automaticamente via props.
+
+### Por que cada componente tem uma responsabilidade única?
+
+- `Navbar` — só exibe o cabeçalho, sem lógica
+- `Dashboard` — só exibe os contadores, recebe números prontos via props
+- `CardObra` — só exibe uma obra e dispara eventos de ação
+- `Formulario` — só gerencia os campos do formulário com estado local
+- `Rodape` — só exibe as informações do rodapé
+
+Essa separação facilita a manutenção — se o visual do card mudar,
+só o `CardObra.tsx` precisa ser alterado.
+
+### Por que interfaces TypeScript separadas?
+
+As interfaces ficam em `src/types/` para centralizar os contratos de dados.
+Se a estrutura de uma obra mudar, só o `IObra.ts` precisa ser atualizado,
+e o TypeScript aponta automaticamente todos os lugares que precisam ser
+ajustados.
+
+---
+
+## Como rodar o projeto
+```bash
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Acesse http://localhost:5173
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Requisitos atendidos
+
+- [x] React + Vite + TypeScript
+- [x] Bootstrap via CDN
+- [x] Interfaces TypeScript para Props e estados
+- [x] Layout responsivo — 3/9 colunas no desktop, empilhado no mobile
+- [x] Tags semânticas: header, main, section, aside, address
+- [x] Dashboard com contadores dinâmicos
+- [x] Atualização imediata ao finalizar ou pausar obra
+- [x] CSS externo com paleta personalizada Van Gogh
+- [x] Formulário para cadastrar novas obras
+
+---
+
+**Aluna:** Aline de Oliveira Tiburcio Souza
+**Disciplina:** Desenvolvimento de Software WEB
+**Professor:** Alexandre Cláudio de Almeida
+**Ano:** 2025
