@@ -34,7 +34,6 @@ function Formulario({ aoAdicionarObra }: IFormularioProps) {
       dimensoes: dimensoes || 'Dimensões não informadas',
       ano: Number(ano) || 0,
       descricao: descricao || 'Sem descrição.',
-      horasDedicadas: 0,
       status: 'criando' // toda obra começa como "em criação"
     }
 

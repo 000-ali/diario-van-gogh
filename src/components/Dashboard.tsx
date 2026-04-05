@@ -5,7 +5,7 @@
 
 import type { IDashboardProps } from '../types/IProps' /*PQ que aqui foi necessario eu colocar o "type" na frente de import?? */
 
-function Dashboard({ total, criando, pausadas, finalizadas, totalHoras }: IDashboardProps) {
+function Dashboard({ total, criando, pausadas, finalizadas}: IDashboardProps) {
   return (
     // <section> é a tag semântica HTML5 para seções de conteúdo
     <section>
@@ -39,13 +39,7 @@ function Dashboard({ total, criando, pausadas, finalizadas, totalHoras }: IDashb
         <div className="numero">{finalizadas}</div>
         <div className="legenda">Finalizadas</div>
       </div>
-
-      {/* Caixa especial de horas totais */}
-      
-      <div className="horas-box">
-        <div className="horas-numero">{totalHoras}h</div>
-        <div className="horas-legenda">Horas dedicadas</div>
-      </div>
+    
 
     </section>
   )

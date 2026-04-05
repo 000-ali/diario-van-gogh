@@ -19,7 +19,6 @@ const obrasIniciais: IObra[] = [
     dimensoes: '73 x 92 cm',
     ano: 1889,
     descricao: 'Uma das obras mais famosas de Van Gogh, pintada em Saint-Rémy-de-Provence.',
-    horasDedicadas: 40,
     status: 'finalizada'
   },
   {
@@ -29,7 +28,6 @@ const obrasIniciais: IObra[] = [
     dimensoes: '92 x 73 cm',
     ano: 1888,
     descricao: 'Série de pinturas de girassóis em vaso, símbolo da amizade com Gauguin.',
-    horasDedicadas: 30,
     status: 'criando'
   },
   {
@@ -39,7 +37,6 @@ const obrasIniciais: IObra[] = [
     dimensoes: '50 x 103 cm',
     ano: 1890,
     descricao: 'Uma das últimas obras de Van Gogh, cheia de tensão e movimento.',
-    horasDedicadas: 15,
     status: 'pausada'
   },
 ]
@@ -55,7 +52,6 @@ function App() {
   const criando     = obras.filter(o => o.status === 'criando').length
   const pausadas    = obras.filter(o => o.status === 'pausada').length
   const finalizadas = obras.filter(o => o.status === 'finalizada').length
-  const totalHoras  = obras.reduce((soma, o) => soma + o.horasDedicadas, 0)
 
   // Muda o status da obra para 'finalizada'
   // .map() percorre todas as obras e só muda a que tem o id certo
@@ -95,7 +91,6 @@ function App() {
                 criando={criando}
                 pausadas={pausadas}
                 finalizadas={finalizadas}
-                totalHoras={totalHoras}
               />
             </aside>
           </div>

@@ -15,7 +15,7 @@ export interface IDashboardProps {
     criando: number
     pausadas: number
     finalizadas: number
-    totalHoras: number
+    
 }
 
 //Props do componente Formulario

@@ -8,6 +8,5 @@ export interface IObra{
     dimensoes: string
     ano: number
     descricao: string
-    horasDedicadas: number
     status: 'criando' | 'pausada' | 'finalizada'
 }
