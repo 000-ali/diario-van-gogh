@@ -47,12 +47,22 @@ h1, h2, h3, h4{
     text-transform: uppercase; /*O que é isso??*/
 }
 
-/*--SIDEBAR--* oque é isso*/
+/* ===== SIDEBAR ===== */
 .sidebar-vangogh {
-    background-color: var(--azul-medio);
-    min-height: 100vh;
-    padding: 24px 16px;
-    border-right: 1px solid var(--azul-medio);
+  background-color: var(--azul-escuro);
+  background-image: url('/girassol.jpg');
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: multiply;
+  min-height: 100vh;
+  height: 100%;
+  padding: 24px 16px;
+  border-right: 1px solid var(--azul-medio);
+  display: flex;
+  flex-direction: column;
+}
+.sidebar-vangogh::after {
+  content: '';
 }
 
 .sidebar-vangogh .sidebar-titulo {
