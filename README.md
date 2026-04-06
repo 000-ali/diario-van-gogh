@@ -9,7 +9,7 @@ Prof. Alexandre Cláudio de Almeida - Escola Politécnica / PUC Goiás
 
 O Diário de Van Gogh é um portfólio pessoal de obras de arte. O usuário pode
 cadastrar obras, acompanhar o status de cada uma (em criação, pausada ou
-finalizada) e visualizar um dashboard com contadores que atualizam em tempo real.
+finalizada).
 
 ---
 

@@ -106,29 +106,6 @@ h1, h2, h3, h4{
   margin-top: 2px;
 }
 
-/* Caixa especial de horas totais  (Isso aqui realmente é necessario? Foi retirada a parte de hora totais do sidebar, entao acredito que não seja necessario continuar com isso aqui.*/
-.horas-box {
-  background: rgba(201,168,76,0.12);
-  border: 1px solid rgba(201,168,76,0.3);
-  border-radius: 8px;
-  padding: 14px;
-  text-align: center;
-  margin-top: 16px;
-}
-
-.horas-box .horas-numero {
-  font-size: 1.6rem;
-  font-weight: 700;
-  color: var(--amarelo-ouro);
-}
-
-.horas-box .horas-legenda {
-  font-size: 0.65rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  color: rgba(255,255,255,0.4);
-  margin-top: 2px;
-}
 
 /* ===== CARDS DE OBRA ===== */
 .card-obra {
