@@ -62,13 +62,15 @@ ajustados.
 ---
 
 ## Como rodar o projeto
+### Online
+Acesse diretamente: https://diario-van-gogh.vercel.app
+
+### Localmente
 ```bash
 npm install
 npm run dev
 ```
-
 Acesse http://localhost:5173
-
 ---
 
 ## Requisitos atendidos
