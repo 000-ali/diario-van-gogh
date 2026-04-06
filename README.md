@@ -1,7 +1,7 @@
 # Diário de Van Gogh
 
 Aplicação desenvolvida para a disciplina **Desenvolvimento de Software WEB**
-Prof. Alexandre Cláudio de Almeida — Escola Politécnica / PUC Goiás
+Prof. Alexandre Cláudio de Almeida - Escola Politécnica / PUC Goiás
 
 ---
 
@@ -17,18 +17,18 @@ finalizada) e visualizar um dashboard com contadores que atualizam em tempo real
 ```
 src/
 ├── components/
-│   ├── Navbar.tsx      — barra de navegação superior
-│   ├── Dashboard.tsx   — painel de contadores
-│   ├── CardObra.tsx    — card de uma única obra
-│   ├── Formulario.tsx  — formulário para adicionar obras
-│   └── Rodape.tsx      — rodapé com tag address
+│   ├── Navbar.tsx      - barra de navegação superior
+│   ├── Dashboard.tsx   - painel de contadores
+│   ├── CardObra.tsx    - card de uma única obra
+│   ├── Formulario.tsx  - formulário para adicionar obras
+│   └── Rodape.tsx      - rodapé com tag address
 ├── types/
-│   ├── IObra.ts        — interface que define o formato de uma obra
-│   └── IProps.ts       — interfaces das props de cada componente
+│   ├── IObra.ts        - interface que define o formato de uma obra
+│   └── IProps.ts       - interfaces das props de cada componente
 ├── styles/
-│   └── global.css      — paleta de cores Van Gogh
-├── App.tsx             — componente raiz, gerencia o estado global
-└── main.tsx            — ponto de entrada da aplicação
+│   └── global.css      - paleta de cores Van Gogh
+├── App.tsx             - componente raiz, gerencia o estado global
+└── main.tsx            - ponto de entrada da aplicação
 ```
 ---
 
@@ -37,20 +37,20 @@ src/
 ### Por que o estado fica no App.tsx?
 
 O estado principal (lista de obras) fica no `App.tsx` porque múltiplos
-componentes dependem dos mesmos dados — o `Dashboard` precisa dos contadores,
+componentes dependem dos mesmos dados - o `Dashboard` precisa dos contadores,
 o `CardObra` precisa de cada obra, e o `Formulario` precisa adicionar na lista.
 Quando o estado fica no componente pai, todos os filhos recebem os dados
 atualizados automaticamente via props.
 
 ### Por que cada componente tem uma responsabilidade única?
 
-- `Navbar` — só exibe o cabeçalho, sem lógica
-- `Dashboard` — só exibe os contadores, recebe números prontos via props
-- `CardObra` — só exibe uma obra e dispara eventos de ação
-- `Formulario` — só gerencia os campos do formulário com estado local
-- `Rodape` — só exibe as informações do rodapé
+- `Navbar` - só exibe o cabeçalho, sem lógica
+- `Dashboard` - só exibe os contadores, recebe números prontos via props
+- `CardObra` - só exibe uma obra e dispara eventos de ação
+- `Formulario` - só gerencia os campos do formulário com estado local
+- `Rodape` - só exibe as informações do rodapé
 
-Essa separação facilita a manutenção — se o visual do card mudar,
+Essa separação facilita a manutenção - se o visual do card mudar,
 só o `CardObra.tsx` precisa ser alterado.
 
 ### Por que interfaces TypeScript separadas?
@@ -79,7 +79,7 @@ Acesse http://localhost:5173
 - [x] React + Vite + TypeScript
 - [x] Bootstrap via CDN
 - [x] Interfaces TypeScript para Props e estados
-- [x] Layout responsivo — 3/9 colunas no desktop, empilhado no mobile
+- [x] Layout responsivo - 3/9 colunas no desktop, empilhado no mobile
 - [x] Tags semânticas: header, main, section, aside, address
 - [x] Dashboard com contadores dinâmicos
 - [x] Atualização imediata ao finalizar ou pausar obra
