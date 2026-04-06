@@ -14,21 +14,22 @@ finalizada) e visualizar um dashboard com contadores que atualizam em tempo real
 ---
 
 ## Estrutura de pastas
+```
 src/
-├── components/       — componentes reutilizáveis da interface
-│   ├── Navbar.tsx    — barra de navegação superior
-│   ├── Dashboard.tsx — painel de contadores (recebe props)
-│   ├── CardObra.tsx  — card de uma única obra
-│   ├── Formulario.tsx— formulário para adicionar obras
-│   └── Rodape.tsx    — rodapé com tag address
+├── components/
+│   ├── Navbar.tsx      — barra de navegação superior
+│   ├── Dashboard.tsx   — painel de contadores
+│   ├── CardObra.tsx    — card de uma única obra
+│   ├── Formulario.tsx  — formulário para adicionar obras
+│   └── Rodape.tsx      — rodapé com tag address
 ├── types/
-│   ├── IObra.ts      — interface que define o formato de uma obra
-│   └── IProps.ts     — interfaces que definem as props de cada componente
+│   ├── IObra.ts        — interface que define o formato de uma obra
+│   └── IProps.ts       — interfaces das props de cada componente
 ├── styles/
-│   └── global.css    — paleta de cores Van Gogh e estilos personalizados
-├── App.tsx           — componente raiz que gerencia o estado global
-└── main.tsx          — ponto de entrada da aplicação
-
+│   └── global.css      — paleta de cores Van Gogh
+├── App.tsx             — componente raiz, gerencia o estado global
+└── main.tsx            — ponto de entrada da aplicação
+```
 ---
 
 ## Justificativa da arquitetura
