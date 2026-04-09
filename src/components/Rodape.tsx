@@ -1,6 +1,5 @@
 // Rodape.tsx
 // Componente do rodapé da aplicação
-// O professor exige a tag <address> com dados do aluno
 
 function Rodape() {
   return (

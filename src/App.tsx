@@ -1,7 +1,3 @@
-// App.tsx
-// Componente raiz — gerencia o estado principal da aplicação
-// e distribui dados e funções para os componentes filhos
-
 import { useState } from 'react'
 import  type { IObra } from './types/IObra'
 import Navbar from './components/Navbar'
@@ -10,7 +6,6 @@ import CardObra from './components/CardObra'
 import Formulario from './components/Formulario'
 import Rodape from './components/Rodape'
 
-// Obras iniciais para a aplicação não começar vazia
 const obrasIniciais: IObra[] = [
   {
     id: 1,
@@ -43,67 +38,72 @@ const obrasIniciais: IObra[] = [
 
 function App() {
 
-  // Estado principal — lista de todas as obras
-  // Quando setObras é chamado, o React re-renderiza tudo automaticamente
   const [obras, setObras] = useState<IObra[]>(obrasIniciais)
 
-  // Contadores calculados a partir da lista — atualizam sozinhos
+  // Estado do filtro — começa mostrando todas as obras
+  const [filtro, setFiltro] = useState<'todas' | 'criando' | 'pausada' | 'finalizada'>('todas')
+
   const total       = obras.length
   const criando     = obras.filter(o => o.status === 'criando').length
   const pausadas    = obras.filter(o => o.status === 'pausada').length
   const finalizadas = obras.filter(o => o.status === 'finalizada').length
 
-  // Muda o status da obra para 'finalizada'
-  // .map() percorre todas as obras e só muda a que tem o id certo
-  // O spread ...obra mantém todos os outros campos iguais
   const finalizarObra = (id: number) => {
     setObras(obras.map(obra =>
       obra.id === id ? { ...obra, status: 'finalizada' } : obra
     ))
   }
 
-  // Muda o status da obra para 'pausada'
   const pausarObra = (id: number) => {
     setObras(obras.map(obra =>
       obra.id === id ? { ...obra, status: 'pausada' } : obra
     ))
   }
 
-  // Adiciona uma nova obra no início da lista
   const adicionarObra = (novaObra: IObra) => {
     setObras([novaObra, ...obras])
   }
+
+  // Filtra as obras conforme o filtro ativo
+  // Se filtro === 'todas', mostra tudo
+  // Senão, mostra só as que têm o status igual ao filtro
+  const obrasFiltradas = filtro === 'todas'
+    ? obras
+    : obras.filter(o => o.status === filtro)
 
   return (
     <>
       <Navbar />
 
-      {/* main é a tag semântica HTML5 para conteúdo principal */}
       <main className="container-fluid px-0">
         <div className="row g-0">
 
-          {/* Barra lateral — 3 colunas no desktop, 12 no celular */}
           <div className="col-12 col-md-3">
-            {/* aside é a tag semântica HTML5 para conteúdo lateral */}
             <aside className="sidebar-vangogh">
+
+              {/* Passa setFiltro e filtro para o Dashboard */}
               <Dashboard
                 total={total}
                 criando={criando}
                 pausadas={pausadas}
                 finalizadas={finalizadas}
+                filtroAtivo={filtro}
+                aoFiltrar={setFiltro}
               />
+
             </aside>
           </div>
 
-          {/* Conteúdo principal — 9 colunas no desktop, 12 no celular */}
           <div className="col-12 col-md-9">
             <div className="p-4">
-
-              {/* Formulário para adicionar novas obras */}
               <Formulario aoAdicionarObra={adicionarObra} />
 
-              {/* Lista de obras — um CardObra para cada item */}
-              {obras.map(obra => (
+              {/* Mostra quantas obras estão sendo exibidas */}
+              <p style={{ fontSize: '0.8rem', color: '#999', marginBottom: '12px' }}>
+                {obrasFiltradas.length} obra(s) encontrada(s)
+              </p>
+
+              {obrasFiltradas.map(obra => (
                 <CardObra
                   key={obra.id}
                   obra={obra}

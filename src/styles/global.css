@@ -83,6 +83,11 @@ h1, h2, h3, h4{
   transition: transform 0.2s ease;
 }
 
+.contador-card.ativo {
+  background: rgba(201, 168, 76, 0.15);
+  border-left-color: var(--amarelo-ouro);
+}
+
 .contador-card:hover {
   transform: translateX(4px);
 }
